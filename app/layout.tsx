@@ -3,6 +3,7 @@ import "./globals.css";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import { Suspense } from "react";
 
 import { Form } from "@/components/Form";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -41,7 +42,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="grid grid-cols-1 md:grid-cols-3">
-            <Form />
+            <Suspense>
+              <Form />
+            </Suspense>
 
             <div
               suppressHydrationWarning
