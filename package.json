@@ -9,13 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-scroll-area": "^1.2.1",
+    "@radix-ui/react-slot": "^1.1.0",
     "@tailwindcss/typography": "^0.5.15",
+    "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "cryptr": "^6.3.0",
     "fluid-tailwind": "^1.0.4",
+    "lucide-react": "^0.460.0",
     "next": "15.0.3",
+    "next-themes": "^0.4.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-json-formatter": "^0.4.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
     "tw-merge": "^0.0.1-alpha.3"
   },
   "devDependencies": {
