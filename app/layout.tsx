@@ -4,6 +4,9 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 
+import { Form } from "@/components/Form";
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 const dmsans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
@@ -23,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={classNames(
           dmsans.variable,
@@ -31,7 +34,23 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <Form />
+
+            <div
+              suppressHydrationWarning
+              className="w-full col-span-1 md:col-span-2"
+            >
+              {children}
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
