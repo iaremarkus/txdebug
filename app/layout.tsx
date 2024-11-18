@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+import classNames from "classnames";
+import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google";
+
+const dmsans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={classNames(
+          dmsans.variable,
+          "antialiased bg-slate-100 dark:bg-black min-h-screen"
+        )}
+        suppressHydrationWarning
       >
         {children}
       </body>
